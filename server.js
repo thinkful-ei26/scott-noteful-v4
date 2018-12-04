@@ -12,7 +12,7 @@ const tagsRouter = require('./routes/tags');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const localStrategy = require('./passport/local');
-
+const jwtStrategy = require("./passport/jwt");
 // Create an Express application
 const app = express();
 
@@ -35,6 +35,7 @@ app.use('/api/users', usersRouter);
 app.use('/api', authRouter);
 
 passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
