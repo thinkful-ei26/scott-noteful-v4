@@ -3,10 +3,11 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  title: { type: String, required: true },
+  title: {type: String, required: true},
   content: String,
-  folderId: { type: mongoose.Schema.Types.ObjectId, ref: 'Folder' },
-  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }]
+  folderId: {type: mongoose.Schema.Types.ObjectId, ref: 'Folder'},
+  tags: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tag'}],
+  userId: {type: mongoose.Schema.Types.ObjectId, ref: "User", required: true}
 });
 
 // Add `createdAt` and `updatedAt` fields
