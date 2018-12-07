@@ -159,7 +159,7 @@ describe('Noteful API - Users', function () {
         .send({username, password: new Array(73).fill('a').join(''), fullname})
         .then(res => {
           expect(res).to.have.status(422);
-          expect(res.body.message).to.equal('Field: \'password\' must be at most 72 characters long');
+          expect(res.body.message).to.equal("password must be no more than 72 characters long.");
         });
     });
 
@@ -182,7 +182,7 @@ describe('Noteful API - Users', function () {
         });
     });
 
-    it.only('Should trim fullname', function () {
+    it('Should trim fullname', function () {
       return chai
         .request(app)
         .post('/api/users')

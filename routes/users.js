@@ -67,7 +67,7 @@ router.post("/", (req, res, next) => {
   }
 
   if (tooLargeField) {
-    const err = new Error(`${tooLargeField} must be mo more than 72 characters long.`);
+    const err = new Error(`${tooLargeField} must be no more than 72 characters long.`);
     err.status = 422;
     return next(err);
   }
